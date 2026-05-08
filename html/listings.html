@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Brothers Jangra Properties — Browse verified property listings in Karnal. Plots, Houses, Flats, Agricultural Land.">
+<title>Property Listings · Brothers Jangra Properties | Karnal</title>
+<link rel="icon" type="image/png" href="./images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── VARS & RESET ── */
+:root {
+    --navy:#1B2B4B; --navy-light:#243760; --navy-deep:#0E1A2E;
+    --gold:#C9922A; --gold-light:#E0AD56; --gold-pale:#F7EDD4;
+    --cream:#FAF7F2; --paper:#F2EDE3; --warm-white:#FFFFFF;
+    --ink:#1C1C1C; --ink-soft:#4A4A4A; --ink-muted:#888;
+    --border:rgba(27,43,75,0.1); --border-gold:rgba(201,146,42,0.25);
+    --s-soft:0 2px 20px rgba(27,43,75,0.07);
+    --s-card:0 12px 56px rgba(27,43,75,0.15);
+    --s-card-hover:0 24px 80px rgba(27,43,75,0.22);
+    --s-gold:0 4px 28px rgba(201,146,42,0.22);
+    --r:6px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.6;}
+a{text-decoration:none;}
+img{display:block;max-width:100%;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy-deep);padding:9px 56px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.04em;border-bottom:1px solid rgba(201,146,42,.15);}
+.topbar-left{display:flex;gap:28px;align-items:center;}
+.topbar-right{display:flex;gap:20px;align-items:center;}
+.topbar a{color:rgba(255,255,255,.55);transition:color .2s;display:flex;align-items:center;gap:6px;}
+.topbar a:hover{color:var(--gold-light);}
+.tb-div{width:1px;height:12px;background:rgba(255,255,255,.12);}
+
+/* ── NAV ── */
+.site-nav{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 56px;display:flex;justify-content:space-between;align-items:center;height:70px;transition:box-shadow .3s;}
+.site-nav.scrolled{box-shadow:0 4px 32px rgba(27,43,75,.1);}
+.nav-logo{display:flex;flex-direction:column;line-height:1;}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--navy);letter-spacing:.04em;}
+.nav-logo-main em{color:var(--gold);font-style:normal;}
+.nav-logo-sub{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-muted);margin-top:3px;font-weight:500;}
+.nav-links{display:flex;list-style:none;height:70px;align-items:center;}
+.nav-links a{display:flex;align-items:center;height:70px;padding:0 16px;color:var(--ink-soft);font-size:.82rem;font-weight:500;letter-spacing:.02em;position:relative;transition:color .2s;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .25s ease;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-end{display:flex;align-items:center;gap:10px;}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.06em;padding:11px 26px;border-radius:2px;border:none;cursor:pointer;transition:all .2s ease;text-decoration:none;}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:var(--gold-light);box-shadow:var(--s-gold);transform:translateY(-1px);}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--border);}
+.btn-outline:hover{border-color:var(--navy);background:var(--navy);color:#fff;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:70px;left:0;right:0;background:#fff;border-bottom:2px solid var(--gold);z-index:800;flex-direction:column;transform:translateY(-110%);opacity:0;transition:transform .3s ease,opacity .3s ease;box-shadow:0 8px 48px rgba(27,43,75,.12);}
+.mobile-nav.open{transform:translateY(0);opacity:1;}
+.mobile-nav a{display:block;padding:15px 24px;color:var(--navy);font-size:.88rem;font-weight:500;border-bottom:1px solid var(--border);transition:all .2s;}
+.mobile-nav a:hover{background:var(--cream);color:var(--gold);padding-left:32px;}
+.mobile-nav a.mob-cta{background:var(--gold);color:#fff;font-weight:700;border-bottom:none;}
+
+/* ── PAGE HEADER ── */
+.page-header{background:var(--navy-deep);padding:84px 56px 0;position:relative;overflow:hidden;}
+.page-header-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80&fit=crop');background-size:cover;background-position:center;opacity:.08;}
+.page-header-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(14,26,46,.97) 55%,rgba(27,43,75,.7));}
+.page-header-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;}
+.page-header-eyebrow{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.page-header-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold-light);}
+.page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:700;color:#fff;line-height:.95;margin-bottom:18px;}
+.page-header h1 em{color:var(--gold-light);font-style:italic;}
+.page-header-sub{color:rgba(255,255,255,.45);font-size:.97rem;max-width:500px;line-height:1.75;margin-bottom:48px;font-weight:300;}
+.header-stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.06);}
+.hstat{padding:22px 40px 22px 0;margin-right:40px;border-right:1px solid rgba(255,255,255,.07);}
+.hstat:last-child{border-right:none;}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--gold-light);line-height:1;}
+.hstat-label{font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:3px;}
+
+/* ── FILTER BAR ── */
+.filter-bar{background:#fff;border-bottom:1px solid var(--border);padding:16px 56px;position:sticky;top:70px;z-index:800;box-shadow:0 2px 20px rgba(27,43,75,.05);}
+.filter-inner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;max-width:1280px;margin:0 auto;}
+.search-box{position:relative;flex:1;min-width:200px;max-width:300px;}
+.search-box input{width:100%;padding:9px 14px 9px 40px;border:1.5px solid var(--border);border-radius:3px;font-family:'DM Sans',sans-serif;font-size:.84rem;color:var(--ink);background:var(--cream);outline:none;transition:border-color .2s,box-shadow .2s;}
+.search-box input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,146,42,.08);}
+.search-box svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-muted);}
+.filter-divider{width:1px;height:32px;background:var(--border);align-self:center;flex-shrink:0;}
+.filter-group{display:flex;gap:5px;flex-wrap:wrap;}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--border);border-radius:3px;font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:500;color:var(--ink-soft);background:#fff;cursor:pointer;transition:all .2s;letter-spacing:.02em;position:relative;white-space:nowrap;}
+.filter-btn:hover{border-color:var(--navy);color:var(--navy);}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.filter-btn.active.hot-btn{background:#c0392b;border-color:#c0392b;}
+.filter-btn.active.warm-btn{background:var(--gold);border-color:var(--gold);}
+.filter-btn.active.cold-btn{background:#2c5282;border-color:#2c5282;}
+.filter-count{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;background:rgba(255,255,255,.22);border-radius:50%;font-size:.58rem;font-weight:700;margin-left:5px;line-height:1;}
+.filter-btn:not(.active) .filter-count{background:var(--border);color:var(--ink-muted);}
+.results-bar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+.results-count{font-size:.76rem;color:var(--ink-muted);white-space:nowrap;background:var(--cream);padding:5px 12px;border-radius:3px;border:1px solid var(--border);}
+.clear-btn{font-size:.74rem;color:var(--gold);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;padding:5px 8px;border-radius:3px;transition:background .2s;display:none;}
+.clear-btn:hover{background:var(--gold-pale);}
+.clear-btn.visible{display:block;}
+
+/* ── LISTING GRID ── */
+.listings-section{padding:44px 56px 96px;}
+.listings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;max-width:1280px;margin:0 auto;}
+
+/* ── PROPERTY CARD ── */
+.prop-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--r);
+    overflow:hidden;
+    transition:transform .28s cubic-bezier(.22,.68,0,1.2),box-shadow .28s ease,border-color .28s ease;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    cursor:pointer;
+    box-shadow:var(--s-soft);
+}
+.prop-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--s-card-hover);
+    border-color:var(--border-gold);
+}
+.prop-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:2;}
+.prop-card.hot::before{background:linear-gradient(90deg,#e74c3c,#ff6b6b);}
+.prop-card.warm::before{background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.prop-card.cold::before{background:linear-gradient(90deg,#3498db,#74b9ff);}
+
+/* Card image */
+.card-img-wrap{position:relative;height:200px;overflow:hidden;background:var(--navy-deep);}
+.card-img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.prop-card:hover .card-img{transform:scale(1.05);}
+.card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy-light) 100%);opacity:.7;}
+.card-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,26,46,.65) 0%,transparent 50%);}
+.card-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2;}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:3px;font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.badge-hot{background:rgba(192,57,43,.88);color:#fff;}
+.badge-warm{background:rgba(201,146,42,.88);color:#fff;}
+.badge-cold{background:rgba(44,82,130,.88);color:#fff;}
+.badge-active{background:rgba(26,127,75,.88);color:#fff;}
+.badge-hold{background:rgba(107,70,193,.88);color:#fff;}
+.badge-sold{background:rgba(100,100,100,.88);color:#fff;}
+.card-code-badge{position:absolute;bottom:12px;right:12px;font-size:.6rem;font-weight:700;letter-spacing:.2em;color:var(--gold-light);background:rgba(14,26,46,.8);padding:3px 9px;border-radius:2px;text-transform:uppercase;backdrop-filter:blur(4px);}
+
+/* Card body */
+.card-body{padding:18px 20px 14px;flex:1;display:flex;flex-direction:column;}
+.card-type-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.card-icon{font-size:1rem;}
+.card-type{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);font-weight:500;}
+.card-reg{font-size:.68rem;color:var(--gold);font-weight:600;background:var(--gold-pale);padding:2px 7px;border-radius:2px;margin-left:auto;}
+.card-location{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:12px;}
+.card-price{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:14px;}
+.card-price-label{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);display:block;margin-bottom:2px;}
+.card-specs{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;}
+.card-spec{display:flex;flex-direction:column;gap:1px;}
+.card-spec-label{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);font-weight:500;}
+.card-spec-val{font-size:.84rem;font-weight:600;color:var(--ink);}
+.card-paper{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;padding:3px 9px;border-radius:2px;background:var(--gold-pale);color:var(--gold);border:1px solid var(--border-gold);font-weight:600;width:fit-content;margin-bottom:10px;}
+.card-remarks{font-size:.74rem;color:var(--ink-muted);font-style:italic;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1;}
+
+/* Card footer */
+.card-footer{padding:12px 20px 14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--cream);}
+.card-expand-hint{font-size:.7rem;color:var(--ink-muted);display:flex;align-items:center;gap:5px;}
+.card-expand-hint svg{transition:transform .2s;}
+.prop-card:hover .card-expand-hint svg{transform:translateX(3px);}
+.card-enquire{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;color:#fff;background:var(--gold);padding:8px 16px;border-radius:3px;letter-spacing:.04em;transition:all .2s;white-space:nowrap;}
+.card-enquire:hover{background:var(--navy);}
+
+/* ── SKELETON LOADING ── */
+.skeleton-card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--s-soft);border:1px solid var(--border);}
+.skeleton-img{height:200px;background:linear-gradient(90deg,#f0ede8 25%,#e8e4dd 50%,#f0ede8 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;}
+.skeleton-body{padding:18px 20px;}
+.skeleton-line{height:12px;border-radius:3px;background:linear-gradient(90deg,#f0ede8 25%,#e8e4dd 50%,#f0ede8 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;margin-bottom:10px;}
+.skeleton-line.short{width:55%;}
+.skeleton-line.med{width:75%;}
+.skeleton-line.long{width:92%;}
+.skeleton-line.title{height:20px;width:80%;margin-bottom:14px;}
+.skeleton-line.price{height:28px;width:45%;margin-bottom:14px;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+
+/* State (empty/error) */
+.state-wrap{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px 24px;text-align:center;}
+.state-icon{font-size:3.5rem;margin-bottom:20px;opacity:.35;}
+.state-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.state-sub{font-size:.88rem;color:var(--ink-muted);}
+
+/* ── MODAL ── */
+.modal-backdrop{
+    position:fixed;inset:0;z-index:2000;
+    background:rgba(14,26,46,.75);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    display:flex;align-items:flex-end;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.modal-backdrop.open{opacity:1;pointer-events:all;}
+.modal{
+    background:#fff;
+    width:100%;max-width:720px;
+    max-height:90vh;
+    border-radius:12px 12px 0 0;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    transform:translateY(100%);
+    transition:transform .38s cubic-bezier(.22,.68,0,1.1);
+    position:relative;
+}
+.modal-backdrop.open .modal{transform:translateY(0);}
+@media(min-width:768px){
+    .modal-backdrop{align-items:center;}
+    .modal{border-radius:12px;max-height:88vh;transform:scale(.92) translateY(20px);opacity:0;transition:transform .35s cubic-bezier(.22,.68,0,1.1),opacity .3s ease;}
+    .modal-backdrop.open .modal{transform:scale(1) translateY(0);opacity:1;}
+}
+.modal-close{
+    position:absolute;top:14px;right:14px;z-index:10;
+    width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(14,26,46,.55);color:#fff;font-size:1.1rem;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s;backdrop-filter:blur(4px);
+}
+.modal-close:hover{background:rgba(14,26,46,.85);}
+.modal-img-area{position:relative;height:260px;background:var(--navy-deep);flex-shrink:0;overflow:hidden;}
+.modal-img{width:100%;height:100%;object-fit:cover;}
+.modal-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.3;}
+.modal-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,26,46,.7) 0%,transparent 55%);}
+.modal-img-badges{position:absolute;top:14px;left:14px;display:flex;gap:7px;}
+.modal-img-bottom{position:absolute;bottom:16px;left:20px;right:20px;}
+.modal-img-location{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:#fff;line-height:1.1;}
+.modal-img-code{font-size:.62rem;letter-spacing:.22em;color:var(--gold-light);text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+
+/* Image switcher */
+.modal-img-switcher{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+.img-thumb{width:36px;height:36px;border-radius:3px;object-fit:cover;cursor:pointer;border:2px solid rgba(255,255,255,.3);transition:border-color .2s;flex-shrink:0;}
+.img-thumb.active{border-color:var(--gold-light);}
+
+.modal-body{padding:22px 24px 28px;overflow-y:auto;flex:1;}
+.modal-price-row{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;flex-wrap:wrap;}
+.modal-price{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;}
+.modal-price-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-muted);}
+.modal-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.modal-detail{background:var(--cream);border-radius:5px;padding:12px 14px;border:1px solid var(--border);}
+.modal-detail-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin-bottom:3px;}
+.modal-detail-val{font-size:.95rem;font-weight:600;color:var(--ink);}
+.modal-section-title{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;}
+.modal-remarks{font-size:.9rem;line-height:1.75;color:var(--ink-soft);background:var(--cream);border-radius:5px;padding:14px 16px;border-left:3px solid var(--border-gold);margin-bottom:20px;}
+.modal-paper-chip{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;padding:5px 12px;border-radius:3px;background:var(--gold-pale);color:var(--gold);border:1px solid var(--border-gold);font-weight:600;margin-bottom:20px;}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.modal-cta{flex:1;min-width:150px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.04em;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
+.modal-cta-primary{background:var(--gold);color:#fff;}
+.modal-cta-primary:hover{background:var(--gold-light);box-shadow:var(--s-gold);}
+.modal-cta-secondary{background:var(--navy);color:#fff;}
+.modal-cta-secondary:hover{background:var(--navy-light);}
+.modal-owner-row{background:var(--navy-deep);border-radius:5px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+.modal-owner-name{font-size:.84rem;color:rgba(255,255,255,.7);}
+.modal-owner-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--navy-deep);border-top:1px solid rgba(201,146,42,.2);padding:72px 56px 36px;}
+.footer-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:28px;}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.footer-brand-name em{color:var(--gold-light);font-style:normal;}
+.footer-tag{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:18px;}
+.footer-desc{font-size:.83rem;line-height:1.75;color:rgba(255,255,255,.38);max-width:270px;}
+.footer-col h4{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin-bottom:18px;}
+.footer-col a,.footer-col p{display:block;font-size:.83rem;color:rgba(255,255,255,.38);line-height:2.4;transition:color .2s;}
+.footer-col a:hover{color:var(--gold-light);}
+.footer-bottom{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:rgba(255,255,255,.18);flex-wrap:wrap;gap:10px;}
+
+/* ── ANIMATIONS ── */
+@keyframes cardIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+    .topbar{padding:8px 24px;}.topbar-right{display:none;}
+    .site-nav{padding:0 24px;}.nav-links,.nav-end .btn-outline{display:none;}
+    .hamburger{display:flex;}.mobile-nav{display:flex;}
+    .page-header{padding:60px 24px 0;}
+    .filter-bar{padding:10px 16px;top:56px;}
+    .listings-section{padding:28px 16px 72px;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
+    .site-footer{padding:56px 24px 32px;}
+}
+@media(max-width:640px){
+    .topbar{display:none;}
+    /* Shrink nav on mobile */
+    .site-nav{height:56px;padding:0 16px;}
+    .mobile-nav{top:56px;}
+    .nav-logo-main{font-size:1.2rem;}
+    .nav-logo-sub{display:none;}
+    /* Compact filter bar — horizontal scroll, no wrap */
+    .filter-bar{padding:8px 12px;top:56px;overflow-x:auto;}
+    .filter-inner{flex-wrap:nowrap;gap:6px;overflow-x:auto;padding-bottom:2px;}
+    .filter-inner::-webkit-scrollbar{display:none;}
+    .filter-divider{display:none;}
+    .search-box{min-width:140px;max-width:160px;flex-shrink:0;}
+    .search-box input{font-size:.78rem;padding:7px 10px 7px 32px;}
+    .filter-group{flex-wrap:nowrap;gap:5px;}
+    .filter-btn{padding:6px 10px;font-size:.72rem;white-space:nowrap;flex-shrink:0;}
+    .filter-count{width:14px;height:14px;font-size:.52rem;}
+    .results-bar{flex-shrink:0;}
+    .results-count{font-size:.7rem;padding:4px 8px;}
+    /* Page header */
+    .page-header{padding:40px 16px 0;}
+    .page-header h1{font-size:2.6rem;}
+    .page-header-sub{font-size:.88rem;margin-bottom:28px;}
+    .header-stats{flex-wrap:wrap;}
+    .hstat{padding:12px 16px 12px 0;margin-right:16px;}
+    .hstat-num{font-size:1.5rem;}
+    /* Grid */
+    .listings-grid{grid-template-columns:1fr;gap:16px;}
+    /* Footer */
+    .footer-grid{grid-template-columns:1fr;}
+    .footer-bottom{flex-direction:column;text-align:center;}
+    /* Modal */
+    .modal-details-grid{grid-template-columns:1fr;}
+    .modal-img-area{height:220px;}
+    .modal-img-location{font-size:1.5rem;}
+    .modal-price{font-size:2rem;}
+    .modal-body{padding:16px 16px 24px;}
+    .modal-actions{flex-direction:column;}
+    .modal-cta{min-width:unset;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="topbar-left">
+        <a href="tel:9996404352">📞 99964 04352 — Arman</a>
+        <div class="tb-div"></div>
+        <a href="tel:8684065027">📞 86840 65027 — Aashirwad</a>
+    </div>
+    <div class="topbar-right">
+        <a href="contact.html">✉️ Free Consultation</a>
+        <div class="tb-div"></div>
+        <span>📍 RK Puram, Hockey Stadium Road, Karnal</span>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Brothers <em>Jangra</em></span>
+        <span class="nav-logo-sub">Legal & Property Solutions · Karnal</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html#construction">Construction</a></li>
+        <li><a href="services.html#legal">Legal</a></li>
+        <li><a href="listings.html" class="active">Listings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+        <a href="tel:9996404352" class="btn btn-outline">📞 Call Now</a>
+        <a href="contact.html" class="btn btn-gold">Free Consultation</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="services.html#construction">Construction</a>
+    <a href="services.html#legal">Legal & Documentation</a>
+    <a href="listings.html">Listings</a>
+    <a href="contact.html" class="mob-cta">Free Consultation →</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="page-header-inner">
+        <div class="page-header-eyebrow">Verified Properties · Karnal & District</div>
+        <h1>Browse Our<br><em>Listings</em></h1>
+        <p class="page-header-sub">Plots, houses, flats, and agricultural land — all personally verified. Updated live from our GitHub repository.</p>
+        <div class="header-stats">
+            <div class="hstat">
+                <div class="hstat-num" id="statTotal">—</div>
+                <div class="hstat-label">Live Listings</div>
+            </div>
+            <div class="hstat">
+                <div class="hstat-num" id="statHot">—</div>
+                <div class="hstat-label">Hot Deals</div>
+            </div>
+            <div class="hstat">
+                <div class="hstat-num">Karnal</div>
+                <div class="hstat-label">District Coverage</div>
+            </div>
+            <div class="hstat">
+                <div class="hstat-num">Live</div>
+                <div class="hstat-label">Real-time Updates</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+    <div class="filter-inner">
+        <div class="search-box">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="searchInput" placeholder="Search location, code, remarks…" autocomplete="off">
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group" id="catFilters">
+            <button class="filter-btn active" data-filter="cat" data-val="all">All Types <span class="filter-count" id="cnt-all">0</span></button>
+            <button class="filter-btn" data-filter="cat" data-val="Plot">🏗️ Plots <span class="filter-count" id="cnt-Plot">0</span></button>
+            <button class="filter-btn" data-filter="cat" data-val="House">🏠 Houses <span class="filter-count" id="cnt-House">0</span></button>
+            <button class="filter-btn" data-filter="cat" data-val="Flat">🏢 Flats <span class="filter-count" id="cnt-Flat">0</span></button>
+            <button class="filter-btn" data-filter="cat" data-val="Land">🌾 Land <span class="filter-count" id="cnt-Land">0</span></button>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group" id="priorFilters">
+            <button class="filter-btn active" data-filter="prior" data-val="all">All</button>
+            <button class="filter-btn hot-btn" data-filter="prior" data-val="Hot">🔥 Hot</button>
+            <button class="filter-btn warm-btn" data-filter="prior" data-val="Warm">☀️ Warm</button>
+            <button class="filter-btn cold-btn" data-filter="prior" data-val="Cold">❄️ Cold</button>
+        </div>
+        <div class="results-bar">
+            <button class="clear-btn" id="clearBtn" onclick="clearFilters()">✕ Clear</button>
+            <span class="results-count" id="resultsCount">Loading…</span>
+        </div>
+    </div>
+</div>
+
+<!-- LISTINGS GRID -->
+<section class="listings-section">
+    <div class="listings-grid" id="listingsGrid">
+        <!-- Skeleton loaders -->
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line title"></div><div class="skeleton-line price"></div><div class="skeleton-line long"></div><div class="skeleton-line med"></div></div></div>
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line title"></div><div class="skeleton-line price"></div><div class="skeleton-line long"></div><div class="skeleton-line med"></div></div></div>
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line title"></div><div class="skeleton-line price"></div><div class="skeleton-line long"></div><div class="skeleton-line med"></div></div></div>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="handleBackdropClick(event)">
+    <div class="modal" id="modalBox">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+        <div class="modal-img-area">
+            <img class="modal-img" id="modalMainImg" src="" alt="" style="display:none;">
+            <div class="modal-img-placeholder" id="modalImgPlaceholder"></div>
+            <div class="modal-img-overlay"></div>
+            <div class="modal-img-badges" id="modalBadges"></div>
+            <div class="modal-img-bottom">
+                <div class="modal-img-code" id="modalCode"></div>
+                <div class="modal-img-location" id="modalLocation"></div>
+                <div class="modal-img-switcher" id="modalImgSwitcher"></div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-price-row">
+                <div>
+                    <div class="modal-price-label">Asking Price</div>
+                    <div class="modal-price" id="modalPrice">—</div>
+                </div>
+            </div>
+            <div id="modalPaperChip"></div>
+            <div class="modal-details-grid" id="modalDetailsGrid"></div>
+            <div id="modalOwnerRow"></div>
+            <div id="modalRemarksSection"></div>
+            <div class="modal-actions" id="modalActions"></div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand-name">Brothers <em>Jangra</em></div>
+            <div class="footer-tag">Legal & Property Solutions · Karnal, Haryana</div>
+            <div class="footer-desc">Your trusted property partner in Karnal. Real estate, quality construction, and legal documentation — all under one roof.</div>
+        </div>
+        <div class="footer-col">
+            <h4>Services</h4>
+            <a href="services.html#realestate">Buy & Sell Property</a>
+            <a href="services.html#realestate">Rental Assistance</a>
+            <a href="services.html#construction">Construction</a>
+            <a href="services.html#legal">Legal & Docs</a>
+            <a href="listings.html">Property Listings</a>
+        </div>
+        <div class="footer-col">
+            <h4>Navigate</h4>
+            <a href="index.html">Home</a>
+            <a href="services.html">All Services</a>
+            <a href="listings.html">Listings</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="contact.html">Free Consultation</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="tel:9996404352">📞 99964 04352 · Arman Jangra</a>
+            <a href="tel:8684065027">📞 86840 65027 · Aashirwad Jangra</a>
+            <p>📍 RK Puram Part 2</p>
+            <p>Hockey Stadium Road, Karnal</p>
+            <p>Haryana, India</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Brothers Jangra Properties · Legal & Property Solutions · Karnal, Haryana · All rights reserved</p>
+        <p>Made with ❤️ for Karnal</p>
+    </div>
+</footer>
+
+<script>
+/* ─────────────────────────────────────────────────
+   CONFIG — replace with your actual GitHub details
+   ───────────────────────────────────────────────── */
+const GITHUB_USER   = 'bjproperties';
+const GITHUB_REPO   = 'site';
+const GITHUB_BRANCH = 'main';
+const DATA_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/data/listings.json`;
+// Images should also live in /images/ in your repo
+// and be referenced in JSON like: "images": ["images/plot-001.jpg", "images/plot-001b.jpg"]
+// Full image URL = https://raw.githubusercontent.com/USER/REPO/main/images/filename.jpg
+
+/* ─────────────────────────────────────────────────
+   STATE
+   ───────────────────────────────────────────────── */
+let allListings      = [];
+let renderedListings = [];
+let activeCat    = 'all';
+let activePrior  = 'all';
+let searchVal    = '';
+const priorOrder = { Hot: 0, Warm: 1, Cold: 2 };
+const icons      = { Plot:'🏗️', House:'🏠', Flat:'🏢', Land:'🌾', Rental:'🔑', Lease:'📋' };
+
+/* ─────────────────────────────────────────────────
+   FETCH — from GitHub raw
+   ───────────────────────────────────────────────── */
+async function fetchListings() {
+    try {
+        // Add cache-busting so GitHub raw always returns fresh data
+        const res = await fetch(DATA_URL + '?t=' + Date.now());
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        allListings = await res.json();
+        // Update header stats
+        document.getElementById('statTotal').textContent = allListings.length;
+        document.getElementById('statHot').textContent   = allListings.filter(p => p.priority === 'Hot').length;
+        updateCounts();
+        render();
+    } catch(e) {
+        document.getElementById('listingsGrid').innerHTML = `
+            <div class="state-wrap">
+                <div class="state-icon">⚠️</div>
+                <div class="state-title">Couldn't Load Listings</div>
+                <div class="state-sub">Please check your connection or call us at 99964 04352.</div>
+            </div>`;
+        document.getElementById('resultsCount').textContent = '';
+        console.error('Listings fetch error:', e);
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   UPDATE FILTER COUNTS
+   ───────────────────────────────────────────────── */
+function updateCounts() {
+    const cats = ['all','Plot','House','Flat','Land'];
+    cats.forEach(cat => {
+        const el = document.getElementById('cnt-' + cat);
+        if (!el) return;
+        const n = cat === 'all'
+            ? allListings.length
+            : allListings.filter(p => p.category === cat).length;
+        el.textContent = n;
+    });
+}
+
+/* ─────────────────────────────────────────────────
+   RENDER CARDS
+   ───────────────────────────────────────────────── */
+function render() {
+    const grid = document.getElementById('listingsGrid');
+    const s    = searchVal.toLowerCase().trim();
+    renderedListings = [];
+
+    let filtered = allListings.filter(p => {
+        const catMatch   = activeCat   === 'all' || p.category === activeCat;
+        const priorMatch = activePrior === 'all' || (p.priority||'').toLowerCase() === activePrior.toLowerCase();
+        const searchMatch = !s || [p.code, p.location, p.owner_name, p.category, p.demand, p.remarks, p.registry_type, p.paper_status]
+            .some(f => f && f.toLowerCase().includes(s));
+        return catMatch && priorMatch && searchMatch;
+    });
+
+    filtered.sort((a, b) => {
+        const pa = priorOrder[a.priority] ?? 3;
+        const pb = priorOrder[b.priority] ?? 3;
+        if (pa !== pb) return pa - pb;
+        return (a.location||'').localeCompare(b.location||'');
+    });
+
+    const count = filtered.length;
+    document.getElementById('resultsCount').textContent = `${count} propert${count === 1 ? 'y' : 'ies'}`;
+
+    // Show/hide clear button
+    const hasFilter = activeCat !== 'all' || activePrior !== 'all' || searchVal.trim() !== '';
+    document.getElementById('clearBtn').classList.toggle('visible', hasFilter);
+
+    if (!count) {
+        grid.innerHTML = `<div class="state-wrap">
+            <div class="state-icon">🔍</div>
+            <div class="state-title">No Listings Found</div>
+            <div class="state-sub">Try adjusting your filters or search term.</div>
+        </div>`;
+        return;
+    }
+
+    grid.innerHTML = filtered.map((p, i) => buildCard(p, i)).join('');
+}
+
+/* ─────────────────────────────────────────────────
+   BUILD CARD HTML
+   ───────────────────────────────────────────────── */
+function buildCard(p, i) {
+    const prior     = p.priority || 'Warm';
+    const status    = p.status   || 'Active';
+    const icon      = icons[p.category] || '🏠';
+    const priorEmoji= prior === 'Hot' ? '🔥' : prior === 'Cold' ? '❄️' : '☀️';
+
+    const areaLabel = 'Area (Sq Yds)';
+    const areaVal   = p.area_gaaj ? `${p.area_gaaj} Sq Yds` : '—';
+
+    // Image handling — first image URL from array, or single string
+    const imgList   = Array.isArray(p.images) ? p.images : (p.images ? [p.images] : []);
+    const imgUrl    = imgList.length
+        ? `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${imgList[0]}`
+        : null;
+
+    const imgHtml = imgUrl
+        ? `<img class="card-img" src="${imgUrl}" alt="${p.location||'Property'}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="card-img-placeholder" style="display:none;">${icon}</div>`
+        : `<div class="card-img-placeholder">${icon}</div>`;
+
+    const cardIndex = renderedListings.push(p) - 1;
+    return `
+    <div class="prop-card ${prior.toLowerCase()}"
+         style="animation:cardIn .38s ease ${Math.min(i*0.055,0.6)}s both"
+         onclick="openModal(${cardIndex})"
+         tabindex="0"
+         role="button"
+         aria-label="View details for ${p.location||'property'}">
+        <div class="card-img-wrap">
+            ${imgHtml}
+            <div class="card-img-overlay"></div>
+            <div class="card-badges">
+                <span class="badge badge-${prior.toLowerCase()}">${priorEmoji} ${prior}</span>
+                <span class="badge badge-${status.toLowerCase()}">${status}</span>
+            </div>
+            ${p.code ? `<div class="card-code-badge">${p.code}</div>` : ''}
+        </div>
+        <div class="card-body">
+            <div class="card-type-row">
+                <span class="card-icon">${icon}</span>
+                <span class="card-type">${p.category||'Property'}</span>
+                ${p.registry_type ? `<span class="card-reg">${p.registry_type}</span>` : ''}
+            </div>
+            <div class="card-location">${p.location||'Location not specified'}</div>
+            <div>
+                <span class="card-price-label">Asking Price</span>
+                <div class="card-price">${p.demand||'Price on request'}</div>
+            </div>
+            <div class="card-specs">
+                <div class="card-spec">
+                    <span class="card-spec-label">${areaLabel}</span>
+                    <span class="card-spec-val">${areaVal}</span>
+                </div>
+                ${p.registry_type ? `<div class="card-spec"><span class="card-spec-label">Registry</span><span class="card-spec-val">${p.registry_type}</span></div>` : ''}
+            </div>
+            ${p.paper_status ? `<div class="card-paper">✓ ${p.paper_status}</div>` : ''}
+            <div class="card-remarks">${p.remarks||(p.owner_name?`Owner: ${p.owner_name}`:'Contact for details')}</div>
+        </div>
+        <div class="card-footer">
+            <span class="card-expand-hint">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                View full details
+            </span>
+            <a href="tel:9996404352" class="card-enquire" onclick="event.stopPropagation()">📞 Enquire</a>
+        </div>
+    </div>`;
+}
+
+/* ─────────────────────────────────────────────────
+   MODAL
+   ───────────────────────────────────────────────── */
+let currentImages = [];
+let activeImgIdx  = 0;
+
+function openModal(idx) {
+    const p = renderedListings[idx];
+    if (!p) return;
+    const prior  = p.priority || 'Warm';
+    const status = p.status   || 'Active';
+    const icon   = icons[p.category] || '🏠';
+
+    // Images
+    const imgList = Array.isArray(p.images) ? p.images : (p.images ? [p.images] : []);
+    currentImages = imgList.map(img =>
+        `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${img}`
+    );
+    activeImgIdx = 0;
+
+    // Set main image
+    const mainImg  = document.getElementById('modalMainImg');
+    const placeholder = document.getElementById('modalImgPlaceholder');
+    if (currentImages.length) {
+        mainImg.src     = currentImages[0];
+        mainImg.alt     = p.location || 'Property';
+        mainImg.style.display = 'block';
+        placeholder.style.display = 'none';
+    } else {
+        mainImg.style.display = 'none';
+        placeholder.style.display = 'flex';
+        placeholder.textContent = icon;
+    }
+
+    // Image switcher thumbnails
+    const switcher = document.getElementById('modalImgSwitcher');
+    switcher.innerHTML = currentImages.length > 1
+        ? currentImages.map((url, idx) =>
+            `<img class="img-thumb${idx===0?' active':''}" src="${url}" onclick="switchModalImg(${idx})" loading="lazy">`
+          ).join('')
+        : '';
+
+    // Badges
+    const priorEmoji = prior==='Hot'?'🔥':prior==='Cold'?'❄️':'☀️';
+    document.getElementById('modalBadges').innerHTML =
+        `<span class="badge badge-${prior.toLowerCase()}">${priorEmoji} ${prior}</span>
+         <span class="badge badge-${status.toLowerCase()}">${status}</span>`;
+
+    // Header info
+    document.getElementById('modalCode').textContent     = p.code || '';
+    document.getElementById('modalLocation').textContent = p.location || 'Property Details';
+    document.getElementById('modalPrice').textContent    = p.demand || 'Price on request';
+
+    // Paper chip
+    document.getElementById('modalPaperChip').innerHTML = p.paper_status
+        ? `<div class="modal-paper-chip">✓ ${p.paper_status}</div>`
+        : '';
+
+    // Details grid
+    const areaLabel = 'Area (Sq Yds)';
+    const areaVal   = p.area_gaaj ? `${p.area_gaaj} Sq Yds` : '—';
+
+    const details = [
+        { label: 'Property Type', val: p.category || '—' },
+        { label: areaLabel,       val: areaVal },
+        { label: 'Registry Type', val: p.registry_type || '—' },
+        { label: 'Paper Status',  val: p.paper_status  || '—' },
+        { label: 'Priority',      val: `${priorEmoji} ${prior}` },
+        { label: 'Status',        val: status },
+    ].filter(d => d.val && d.val !== '—');
+
+    document.getElementById('modalDetailsGrid').innerHTML =
+        details.map(d => `
+            <div class="modal-detail">
+                <div class="modal-detail-label">${d.label}</div>
+                <div class="modal-detail-val">${d.val}</div>
+            </div>`).join('');
+
+    // Owner row
+    document.getElementById('modalOwnerRow').innerHTML = p.owner_name
+        ? `<div class="modal-owner-row">
+               <div><div class="modal-owner-label">Owner / Contact</div><div class="modal-owner-name">${p.owner_name}</div></div>
+               ${p.owner_phone ? `<a href="tel:${p.owner_phone}" class="modal-cta modal-cta-secondary" style="flex:0;white-space:nowrap;">📞 ${p.owner_phone}</a>` : ''}
+           </div>`
+        : '';
+
+    // Remarks
+    document.getElementById('modalRemarksSection').innerHTML = p.remarks
+        ? `<div class="modal-section-title">Details & Remarks</div>
+           <div class="modal-remarks">${p.remarks}</div>`
+        : '';
+
+    // Actions
+    document.getElementById('modalActions').innerHTML = `
+        <a href="tel:9996404352" class="modal-cta modal-cta-primary">📞 Call Arman — 99964 04352</a>
+        <a href="tel:8684065027" class="modal-cta modal-cta-secondary">📞 Aashirwad — 86840 65027</a>`;
+
+    // Open
+    document.getElementById('modalBackdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function switchModalImg(idx) {
+    activeImgIdx = idx;
+    const mainImg = document.getElementById('modalMainImg');
+    mainImg.src = currentImages[idx];
+    document.querySelectorAll('.img-thumb').forEach((t, i) => t.classList.toggle('active', i === idx));
+}
+
+function closeModal() {
+    document.getElementById('modalBackdrop').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function handleBackdropClick(e) {
+    if (e.target === document.getElementById('modalBackdrop')) closeModal();
+}
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+});
+
+// Keyboard accessibility for cards
+document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.classList.contains('prop-card')) e.target.click();
+});
+
+/* ─────────────────────────────────────────────────
+   FILTERS
+   ───────────────────────────────────────────────── */
+document.querySelectorAll('[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const group = btn.dataset.filter;
+        document.querySelectorAll(`[data-filter="${group}"]`).forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (group === 'cat')   activeCat   = btn.dataset.val;
+        if (group === 'prior') activePrior = btn.dataset.val;
+        render();
+    });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+    searchVal = e.target.value;
+    render();
+});
+
+function clearFilters() {
+    activeCat   = 'all';
+    activePrior = 'all';
+    searchVal   = '';
+    document.getElementById('searchInput').value = '';
+    document.querySelectorAll('[data-filter="cat"]').forEach(b => b.classList.toggle('active', b.dataset.val === 'all'));
+    document.querySelectorAll('[data-filter="prior"]').forEach(b => b.classList.toggle('active', b.dataset.val === 'all'));
+    render();
+}
+
+/* ─────────────────────────────────────────────────
+   NAV / SCROLL
+   ───────────────────────────────────────────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+}));
+
+/* ─────────────────────────────────────────────────
+   INIT
+   ───────────────────────────────────────────────── */
+fetchListings();
+</script>
+</body>
+</html>

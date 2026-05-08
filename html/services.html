@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Brothers Jangra Properties — Construction packages from ₹1200/sq.ft, legal documentation, HUDA property services in Karnal, Haryana.">
+<title>Services · Brothers Jangra Properties | Karnal</title>
+<link rel="icon" type="image/png" href="./images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy:#1B2B4B;--navy-light:#243760;--navy-deep:#0E1A2E;
+    --gold:#C9922A;--gold-light:#E0AD56;--gold-pale:#F7EDD4;
+    --cream:#FAF7F2;--paper:#F2EDE3;--warm-white:#FFFFFF;
+    --ink:#1C1C1C;--ink-soft:#4A4A4A;--ink-muted:#888;
+    --border:rgba(27,43,75,0.1);--border-gold:rgba(201,146,42,0.25);
+    --s-soft:0 2px 20px rgba(27,43,75,0.07);
+    --s-card:0 8px 48px rgba(27,43,75,0.12);
+    --s-gold:0 4px 28px rgba(201,146,42,0.22);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.6;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;}
+
+.topbar{background:var(--navy-deep);padding:9px 56px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.04em;border-bottom:1px solid rgba(201,146,42,.15);}
+.topbar-left{display:flex;gap:28px;align-items:center;}
+.topbar-right{display:flex;gap:20px;align-items:center;}
+.topbar a{color:rgba(255,255,255,.55);transition:color .2s;display:flex;align-items:center;gap:6px;}
+.topbar a:hover{color:var(--gold-light);}
+.tb-div{width:1px;height:12px;background:rgba(255,255,255,.12);}
+
+.site-nav{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 56px;display:flex;justify-content:space-between;align-items:center;height:70px;transition:box-shadow .3s;}
+.site-nav.scrolled{box-shadow:0 4px 32px rgba(27,43,75,.1);}
+.nav-logo{display:flex;flex-direction:column;line-height:1;}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--navy);letter-spacing:.04em;}
+.nav-logo-main em{color:var(--gold);font-style:normal;}
+.nav-logo-sub{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-muted);margin-top:3px;font-weight:500;}
+.nav-links{display:flex;list-style:none;height:70px;align-items:center;}
+.nav-links a{display:flex;align-items:center;height:70px;padding:0 16px;color:var(--ink-soft);font-size:.82rem;font-weight:500;letter-spacing:.02em;position:relative;transition:color .2s;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .25s ease;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-end{display:flex;align-items:center;gap:10px;}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.06em;padding:11px 26px;border-radius:2px;border:none;cursor:pointer;transition:all .2s ease;text-decoration:none;}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy-light);transform:translateY(-1px);}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:var(--gold-light);box-shadow:var(--s-gold);transform:translateY(-1px);}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--border);}
+.btn-outline:hover{border-color:var(--navy);background:var(--navy);color:#fff;}
+.btn-outline-gold{background:transparent;color:var(--gold);border:1.5px solid var(--gold);}
+.btn-outline-gold:hover{background:var(--gold);color:#fff;}
+.btn-white{background:#fff;color:var(--navy);}
+.btn-white:hover{background:var(--gold-pale);}
+.btn-lg{padding:14px 36px;font-size:.88rem;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:70px;left:0;right:0;background:#fff;border-bottom:2px solid var(--gold);z-index:800;flex-direction:column;transform:translateY(-110%);opacity:0;transition:transform .3s ease,opacity .3s ease;box-shadow:var(--s-card);}
+.mobile-nav.open{transform:translateY(0);opacity:1;}
+.mobile-nav a{display:block;padding:15px 24px;color:var(--navy);font-size:.88rem;font-weight:500;border-bottom:1px solid var(--border);transition:all .2s;}
+.mobile-nav a:hover{background:var(--cream);color:var(--gold);padding-left:32px;}
+.mobile-nav a.mob-cta{background:var(--gold);color:#fff;font-weight:700;border-bottom:none;}
+
+/* PAGE HERO */
+.page-hero{
+    background:var(--navy-deep);
+    min-height:52vh;
+    display:flex;align-items:flex-end;
+    padding-bottom:0;
+    position:relative;overflow:hidden;
+}
+.page-hero-bg{
+    position:absolute;inset:0;
+    background-size:cover;background-position:center;
+    opacity:.2;
+}
+.page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,26,46,1) 0%,rgba(14,26,46,.4) 100%);}
+.page-hero-inner{
+    position:relative;z-index:2;
+    padding:80px 56px 64px;max-width:1160px;margin:0 auto;width:100%;
+}
+.page-hero-tag{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.page-hero-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold-light);}
+.page-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:700;line-height:.92;color:#fff;margin-bottom:20px;}
+.page-hero-title em{color:var(--gold-light);font-style:italic;}
+.page-hero-sub{font-size:.97rem;color:rgba(255,255,255,.5);max-width:520px;line-height:1.75;font-weight:300;}
+
+/* SECTION NAV */
+.section-tabs{
+    background:var(--warm-white);
+    border-bottom:1px solid var(--border);
+    padding:0 56px;
+    position:sticky;top:70px;z-index:400;
+    display:flex;gap:0;
+    overflow-x:auto;
+}
+.stab{
+    display:flex;align-items:center;height:54px;
+    padding:0 24px;font-size:.8rem;font-weight:600;
+    color:var(--ink-muted);letter-spacing:.04em;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;transition:all .2s;
+}
+.stab:hover,.stab.active{color:var(--navy);border-bottom-color:var(--gold);}
+
+/* SHARED */
+section{padding:88px 56px;}
+.container{max-width:1160px;margin:0 auto;}
+.eyebrow{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.1;color:var(--navy);margin-bottom:18px;}
+.sec-title em{font-style:italic;color:var(--gold);font-weight:500;}
+.sec-body{font-size:.95rem;line-height:1.82;color:var(--ink-soft);font-weight:300;}
+
+/* ── REAL ESTATE ── */
+.re-section{background:var(--warm-white);}
+.re-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.re-img-group{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 240px;gap:8px;}
+.re-img{overflow:hidden;border-radius:2px;position:relative;}
+.re-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:brightness(.85);}
+.re-img:hover img{transform:scale(1.05);filter:brightness(.95);}
+.re-img.span2{grid-column:1/-1;}
+.re-img-tag{position:absolute;bottom:10px;left:10px;background:rgba(14,26,46,.82);color:rgba(255,255,255,.8);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
+
+.re-types{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
+.re-type{background:var(--cream);border:1px solid var(--border);border-radius:2px;padding:18px 18px;transition:all .2s;display:flex;align-items:center;gap:12px;}
+.re-type:hover{border-color:var(--border-gold);box-shadow:var(--s-soft);transform:translateY(-2px);}
+.re-type-icon{font-size:1.3rem;flex-shrink:0;}
+.re-type-name{font-size:.85rem;font-weight:600;color:var(--navy);}
+.re-type-desc{font-size:.75rem;color:var(--ink-muted);margin-top:2px;}
+
+/* ── CONSTRUCTION ── */
+.construction-sec{background:var(--navy-deep);position:relative;overflow:hidden;}
+.construction-sec::before{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80&fit=crop');background-size:cover;background-position:center;opacity:.08;}
+.construction-sec .sec-title{color:#fff;}
+.construction-sec .eyebrow{color:var(--gold-light);}
+.construction-sec .eyebrow::before{background:var(--gold-light);}
+
+.con-header{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:60px;}
+.con-header .sec-body{color:rgba(255,255,255,.5);}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative;z-index:1;}
+
+.pkg{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:2px;overflow:hidden;
+    transition:all .3s;
+}
+.pkg.featured{
+    background:var(--gold);
+    border-color:var(--gold);
+    transform:translateY(-16px);
+    box-shadow:var(--s-gold);
+}
+.pkg:not(.featured):hover{background:rgba(201,146,42,.08);border-color:rgba(201,146,42,.25);transform:translateY(-5px);}
+
+.pkg-img{height:180px;overflow:hidden;position:relative;}
+.pkg-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:brightness(.7);}
+.pkg:hover .pkg-img img{transform:scale(1.06);}
+.pkg-img-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,26,46,.5) 0%,transparent 60%);}
+
+.pkg-head{padding:28px 28px 20px;border-bottom:1px solid rgba(255,255,255,.08);}
+.pkg.featured .pkg-head{border-bottom-color:rgba(255,255,255,.2);}
+.pkg-badge{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:10px;display:block;}
+.pkg.featured .pkg-badge{color:rgba(255,255,255,.85);}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.pkg-price{display:flex;align-items:baseline;gap:5px;}
+.pkg-price-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold-light);}
+.pkg.featured .pkg-price-num{color:#fff;}
+.pkg-price-unit{font-size:.75rem;color:rgba(255,255,255,.45);}
+
+.pkg-body{padding:24px 28px;}
+.pkg-feats{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.pkg-feat{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5;}
+.pkg.featured .pkg-feat{color:rgba(255,255,255,.9);}
+.pkg-feat-check{color:var(--gold-light);flex-shrink:0;margin-top:1px;}
+.pkg.featured .pkg-feat-check{color:#fff;}
+
+.con-extras{
+    margin-top:52px;position:relative;z-index:1;
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.con-extra-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:2px;padding:28px 32px;}
+.con-extra-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:#fff;margin-bottom:16px;}
+.con-materials{display:flex;flex-wrap:wrap;gap:8px;}
+.mat-tag{background:rgba(201,146,42,.1);border:1px solid rgba(201,146,42,.2);padding:6px 14px;border-radius:2px;font-size:.76rem;color:var(--gold-light);letter-spacing:.05em;}
+.con-upgrades{display:flex;flex-direction:column;gap:10px;}
+.upgrade{display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6);}
+.upgrade::before{content:'✦';color:var(--gold-light);font-size:.65rem;flex-shrink:0;}
+
+/* ── LEGAL ── */
+.legal-sec{background:var(--paper);}
+.legal-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;}
+.legal-sticky{position:sticky;top:136px;}
+.legal-hero-img{width:100%;height:300px;object-fit:cover;border-radius:2px;margin-bottom:28px;filter:brightness(.85) saturate(.95);}
+.legal-promise{background:var(--navy);border-radius:2px;padding:28px 32px;margin-bottom:20px;}
+.legal-promise-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:14px;}
+.lp-item{display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.55);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.lp-item:last-child{border-bottom:none;}
+.lp-item::before{content:'✓';color:var(--gold-light);font-weight:700;flex-shrink:0;}
+.lang-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.lang-badge{background:var(--gold-pale);color:var(--gold);border:1px solid var(--border-gold);padding:5px 12px;border-radius:2px;font-size:.75rem;font-weight:600;letter-spacing:.06em;}
+
+.legal-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.lcard{background:var(--warm-white);border:1px solid var(--border);border-radius:2px;overflow:hidden;transition:all .25s;}
+.lcard:hover{box-shadow:var(--s-card);transform:translateY(-4px);border-color:transparent;}
+.lcard-img{height:140px;overflow:hidden;position:relative;}
+.lcard-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.9);transition:transform .4s;}
+.lcard:hover .lcard-img img{transform:scale(1.06);}
+.lcard-img-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,26,46,.55) 0%,transparent 60%);}
+.lcard-body{padding:22px 22px;}
+.lcard-icon{font-size:1.4rem;margin-bottom:12px;display:block;}
+.lcard-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.lcard-items{display:flex;flex-direction:column;gap:6px;}
+.lcard-item{font-size:.78rem;color:var(--ink-muted);display:flex;align-items:center;gap:8px;}
+.lcard-item::before{content:'→';color:var(--gold);font-size:.72rem;flex-shrink:0;}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--navy);padding:80px 56px;text-align:center;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;margin-bottom:14px;}
+.cta-band h2 em{color:var(--gold-light);font-style:italic;}
+.cta-band p{font-size:.97rem;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto 36px;line-height:1.75;}
+.cta-band-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+/* FOOTER */
+.site-footer{background:var(--navy-deep);border-top:1px solid rgba(201,146,42,.2);padding:72px 56px 36px;}
+.footer-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:28px;}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.footer-brand-name em{color:var(--gold-light);font-style:normal;}
+.footer-tag{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:18px;}
+.footer-desc{font-size:.83rem;line-height:1.75;color:rgba(255,255,255,.38);max-width:270px;}
+.footer-col h4{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin-bottom:18px;}
+.footer-col a,.footer-col p{display:block;font-size:.83rem;color:rgba(255,255,255,.38);line-height:2.4;transition:color .2s;}
+.footer-col a:hover{color:var(--gold-light);}
+.footer-bottom{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:rgba(255,255,255,.18);flex-wrap:wrap;gap:10px;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-l{opacity:0;transform:translateX(-22px);transition:opacity .65s ease,transform .65s ease;}
+.reveal-l.visible{opacity:1;transform:translateX(0);}
+.reveal-r{opacity:0;transform:translateX(22px);transition:opacity .65s ease,transform .65s ease;}
+.reveal-r.visible{opacity:1;transform:translateX(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+    .topbar{padding:8px 24px;}.topbar-right{display:none;}
+    .site-nav{padding:0 24px;}.nav-links,.nav-end{display:none;}
+    .hamburger{display:flex;}.mobile-nav{display:flex;}
+    section{padding:64px 24px;}
+    .page-hero-inner{padding:60px 24px 48px;}
+    .section-tabs{padding:0 24px;}
+    .re-grid{grid-template-columns:1fr;gap:40px;}
+    .con-header{grid-template-columns:1fr;gap:16px;}
+    .pkg-grid{grid-template-columns:1fr;}.pkg.featured{transform:none;}
+    .con-extras{grid-template-columns:1fr;}
+    .legal-grid{grid-template-columns:1fr;}
+    .legal-sticky{position:static;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
+    .cta-band{padding:60px 24px;}
+}
+@media(max-width:640px){
+    section{padding:52px 18px;}
+    .page-hero-inner{padding:48px 18px 36px;}
+    .re-img-group{grid-template-columns:1fr;}
+    .re-types{grid-template-columns:1fr;}
+    .legal-cards{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .footer-bottom{flex-direction:column;text-align:center;}
+    .section-tabs{padding:0 18px;}
+    .topbar{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="topbar-left">
+        <a href="tel:9996404352">📞 99964 04352 — Arman Jangra</a>
+        <div class="tb-div"></div>
+        <a href="tel:8684065027">📞 86840 65027 — Aashirwad</a>
+    </div>
+    <div class="topbar-right">
+        <a href="contact.html">✉️ Free Consultation</a>
+        <div class="tb-div"></div>
+        <span>📍 RK Puram, Hockey Stadium Road, Karnal</span>
+    </div>
+</div>
+
+<nav class="site-nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Brothers <em>Jangra</em></span>
+        <span class="nav-logo-sub">Legal & Property Solutions · Karnal</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="services.html#construction" class="active">Construction</a></li>
+        <li><a href="services.html#legal" class="active">Legal</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+        <a href="tel:9996404352" class="btn btn-outline">📞 Call Now</a>
+        <a href="contact.html" class="btn btn-gold">Free Consultation</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="services.html#construction">Construction</a>
+    <a href="services.html#legal">Legal</a>
+    <a href="listings.html">Listings</a>
+    <a href="contact.html" class="mob-cta">Free Consultation →</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80&fit=crop')"></div>
+    <div class="page-hero-inner">
+        <div class="page-hero-tag">Everything We Do</div>
+        <h1 class="page-hero-title">Our <em>Services</em></h1>
+        <p class="page-hero-sub">Real estate brokerage, custom home construction, and legal documentation — all under one roof in Karnal.</p>
+    </div>
+</div>
+
+<!-- SECTION TABS -->
+<div class="section-tabs">
+    <a href="#realestate" class="stab active">🏠 Real Estate</a>
+    <a href="#construction" class="stab">🏗️ Construction</a>
+    <a href="#legal" class="stab">⚖️ Legal & Docs</a>
+    <a href="contact.html" class="stab" style="margin-left:auto;color:var(--gold);">Book Free Consultation →</a>
+</div>
+
+<!-- REAL ESTATE -->
+<section class="re-section" id="realestate">
+    <div class="container">
+        <div class="re-grid">
+            <div class="reveal-l">
+                <div class="re-img-group">
+                    <div class="re-img">
+                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&q=80&fit=crop" alt="Residential Home Karnal">
+                        <div class="re-img-tag">Residential</div>
+                    </div>
+                    <div class="re-img">
+                        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80&fit=crop" alt="Plot Karnal">
+                        <div class="re-img-tag">Plots & Land</div>
+                    </div>
+                    <div class="re-img span2">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80&fit=crop&crop=center" alt="Agriculture Land" style="max-height:180px;width:100%;object-fit:cover;">
+                        <div class="re-img-tag">Agriculture Land · Karnal District</div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-r">
+                <div class="eyebrow">Real Estate</div>
+                <h2 class="sec-title">Buy, Sell &<br><em>Rent</em> in Karnal</h2>
+                <p class="sec-body" style="margin-bottom:28px;">We handle every type of property transaction in Karnal. Whether you're a first-time buyer or looking to sell, our local expertise and verified listings mean you get the right deal.</p>
+                <div class="re-types">
+                    <div class="re-type">
+                        <span class="re-type-icon">🏠</span>
+                        <div><div class="re-type-name">Residential</div><div class="re-type-desc">Houses, flats & independent plots</div></div>
+                    </div>
+                    <div class="re-type">
+                        <span class="re-type-icon">🏛️</span>
+                        <div><div class="re-type-name">HUDA / HSVP</div><div class="re-type-desc">Govt-approved sectors, legally clear</div></div>
+                    </div>
+                    <div class="re-type">
+                        <span class="re-type-icon">🌟</span>
+                        <div><div class="re-type-name">Alpha Projects</div><div class="re-type-desc">Premium developer projects Karnal</div></div>
+                    </div>
+                    <div class="re-type">
+                        <span class="re-type-icon">✨</span>
+                        <div><div class="re-type-name">Signature Projects</div><div class="re-type-desc">High-value curated properties</div></div>
+                    </div>
+                    <div class="re-type">
+                        <span class="re-type-icon">🌾</span>
+                        <div><div class="re-type-name">Agriculture Land</div><div class="re-type-desc">Farm land across Karnal district</div></div>
+                    </div>
+                    <div class="re-type">
+                        <span class="re-type-icon">🔑</span>
+                        <div><div class="re-type-name">Rent & Lease</div><div class="re-type-desc">Residential & commercial rentals</div></div>
+                    </div>
+                </div>
+                <div style="margin-top:32px;">
+                    <a href="contact.html" class="btn btn-gold btn-lg">Enquire About a Property →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONSTRUCTION -->
+<section class="construction-sec" id="construction">
+    <div class="container">
+        <div class="con-header">
+            <div class="reveal">
+                <div class="eyebrow" style="color:var(--gold-light);">Quality Construction</div>
+                <h2 class="sec-title">Build Your<br><em>Dream Home</em></h2>
+            </div>
+            <p class="sec-body reveal d1" style="color:rgba(255,255,255,.5);">From foundation to final paint — transparent package pricing, quality materials, experienced builders. No hidden costs. Customer satisfaction guaranteed.</p>
+        </div>
+
+        <div class="pkg-grid">
+            <!-- STANDARD -->
+            <div class="pkg reveal">
+                <div class="pkg-img">
+                    <img src="https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9?w=700&q=80&fit=crop" alt="Standard Construction">
+                    <div class="pkg-img-overlay"></div>
+                </div>
+                <div class="pkg-head">
+                    <span class="pkg-badge">Normal Construction</span>
+                    <div class="pkg-name">Standard</div>
+                    <div class="pkg-price">
+                        <span class="pkg-price-num">₹1,200</span>
+                        <span class="pkg-price-unit">per sq. ft.</span>
+                    </div>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-feats">
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Affordable quality construction</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Standard cement & quality bricks</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Basic plumbing & electrical work</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Standard floor tiles</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Exterior painting & basic finishing</div>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- FEATURED MEDIUM -->
+            <div class="pkg featured reveal d1">
+                <div class="pkg-img">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80&fit=crop" alt="Premium Home Construction">
+                    <div class="pkg-img-overlay"></div>
+                </div>
+                <div class="pkg-head">
+                    <span class="pkg-badge">★ Most Popular</span>
+                    <div class="pkg-name">Premium</div>
+                    <div class="pkg-price">
+                        <span class="pkg-price-num">₹2,000–₹2,500</span>
+                        <span class="pkg-price-unit">per sq. ft.</span>
+                    </div>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-feats">
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Enhanced quality & better finishes</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Premium grade steel & cement</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Designer tiles & upgraded flooring</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Upgraded plumbing & electrics</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Interior & exterior finishing</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Optional modular kitchen add-on</div>
+                    </div>
+                    <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center;">Get Quote →</a>
+                </div>
+            </div>
+
+            <!-- ELITE -->
+            <div class="pkg reveal d2">
+                <div class="pkg-img">
+                    <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=700&q=80&fit=crop" alt="Luxury Home">
+                    <div class="pkg-img-overlay"></div>
+                </div>
+                <div class="pkg-head">
+                    <span class="pkg-badge">Luxury Construction</span>
+                    <div class="pkg-name">Elite</div>
+                    <div class="pkg-price">
+                        <span class="pkg-price-num">₹2,500+</span>
+                        <span class="pkg-price-unit">per sq. ft.</span>
+                    </div>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-feats">
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> High-quality materials throughout</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Luxury finish & modern architecture</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Custom interior wooden work</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Modular kitchen included</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Sanitary & furniture upgrades</div>
+                        <div class="pkg-feat"><span class="pkg-feat-check">✓</span> Full exterior modern design</div>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Get Quote</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="con-extras reveal">
+            <div class="con-extra-card">
+                <div class="con-extra-title">🏗️ Materials We Use</div>
+                <div class="con-materials">
+                    <span class="mat-tag">Cement</span>
+                    <span class="mat-tag">Steel</span>
+                    <span class="mat-tag">Quality Bricks</span>
+                    <span class="mat-tag">Coarse Sand</span>
+                    <span class="mat-tag">Tiles & Flooring</span>
+                    <span class="mat-tag">Electrical Fittings</span>
+                    <span class="mat-tag">Plumbing</span>
+                    <span class="mat-tag">Painting & Finishing</span>
+                </div>
+            </div>
+            <div class="con-extra-card">
+                <div class="con-extra-title">✨ Premium Upgrade Options</div>
+                <div class="con-upgrades">
+                    <div class="upgrade">Modular Kitchen Design</div>
+                    <div class="upgrade">Custom Interior Wooden Work</div>
+                    <div class="upgrade">Modern Exterior Architecture</div>
+                    <div class="upgrade">Furniture & Sanitary Upgrades</div>
+                    <div class="upgrade">Interior & Exterior Painting</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEGAL -->
+<section class="legal-sec" id="legal">
+    <div class="container">
+        <div class="legal-grid">
+            <div class="legal-sticky">
+                <div class="reveal-l">
+                    <img class="legal-hero-img" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop" alt="Legal Services">
+                    <div class="eyebrow">Legal & Documentation</div>
+                    <h2 class="sec-title">All Court &<br><em>Tehsil Work</em></h2>
+                    <p class="sec-body" style="margin-bottom:24px;">Reliable. Professional. Affordable. Every document handled with accuracy and confidentiality. Available in 4 languages.</p>
+                </div>
+                <div class="legal-promise reveal-l d1">
+                    <div class="legal-promise-title">Our Promise</div>
+                    <div class="lp-item">Fast turnaround on all documents</div>
+                    <div class="lp-item">Accurate & error-free work</div>
+                    <div class="lp-item">Strictly confidential</div>
+                    <div class="lp-item">Experienced in all court & tehsil work</div>
+                    <div class="lp-item">Available in 4 languages</div>
+                </div>
+                <div class="lang-badges reveal-l d2">
+                    <span class="lang-badge">हिंदी</span>
+                    <span class="lang-badge">English</span>
+                    <span class="lang-badge">ਪੰਜਾਬੀ</span>
+                    <span class="lang-badge">اردو</span>
+                </div>
+            </div>
+            <div class="legal-cards">
+                <div class="lcard reveal">
+                    <div class="lcard-img">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80&fit=crop" alt="Legal Drafting">
+                        <div class="lcard-img-overlay"></div>
+                    </div>
+                    <div class="lcard-body">
+                        <span class="lcard-icon">📝</span>
+                        <div class="lcard-title">Legal Drafting</div>
+                        <div class="lcard-items">
+                            <div class="lcard-item">Petitions</div>
+                            <div class="lcard-item">Affidavits</div>
+                            <div class="lcard-item">Applications</div>
+                            <div class="lcard-item">Letters & typing</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lcard reveal d1">
+                    <div class="lcard-img">
+                        <img src="https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?w=600&q=80&fit=crop" alt="Legal Notices">
+                        <div class="lcard-img-overlay"></div>
+                    </div>
+                    <div class="lcard-body">
+                        <span class="lcard-icon">⚠️</span>
+                        <div class="lcard-title">Legal Notices</div>
+                        <div class="lcard-items">
+                            <div class="lcard-item">Property dispute notices</div>
+                            <div class="lcard-item">Recovery cases</div>
+                            <div class="lcard-item">Complaints</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lcard reveal d1">
+                    <div class="lcard-img">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&fit=crop" alt="Agreements">
+                        <div class="lcard-img-overlay"></div>
+                    </div>
+                    <div class="lcard-body">
+                        <span class="lcard-icon">🤝</span>
+                        <div class="lcard-title">Agreements</div>
+                        <div class="lcard-items">
+                            <div class="lcard-item">Rent agreement</div>
+                            <div class="lcard-item">Sale agreement</div>
+                            <div class="lcard-item">Partnership deed</div>
+                            <div class="lcard-item">Loan agreement</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lcard reveal d2">
+                    <div class="lcard-img">
+                        <img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?w=600&q=80&fit=crop" alt="Other Services">
+                        <div class="lcard-img-overlay"></div>
+                    </div>
+                    <div class="lcard-body">
+                        <span class="lcard-icon">🏛️</span>
+                        <div class="lcard-title">Other Services</div>
+                        <div class="lcard-items">
+                            <div class="lcard-item">Traffic challan help</div>
+                            <div class="lcard-item">DL & RC transfer</div>
+                            <div class="lcard-item">Translations (4 languages)</div>
+                            <div class="lcard-item">All court & tehsil work</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band reveal">
+    <h2>Ready to Get <em>Started?</em></h2>
+    <p>Book a free consultation with our team. No obligations — just an honest conversation about what you need.</p>
+    <div class="cta-band-btns">
+        <a href="contact.html" class="btn btn-gold btn-lg">Book Free Consultation →</a>
+        <a href="tel:8684065027" class="btn btn-white btn-lg">📞 Call Now</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand-name">Brothers <em>Jangra</em></div>
+            <div class="footer-tag">Legal & Property Solutions · Karnal, Haryana</div>
+            <div class="footer-desc">Your trusted property partner in Karnal. Real estate, quality construction, and legal documentation — all under one roof.</div>
+        </div>
+        <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#realestate">Buy & Sell Property</a>
+            <a href="#realestate">HUDA Properties</a>
+            <a href="#construction">Construction</a>
+            <a href="#legal">Legal & Docs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Navigate</h4>
+            <a href="index.html">Home</a>
+            <a href="services.html">All Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html">Free Consultation</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="tel:9996404352">📞 99964 04352 · Arman Jangra</a>
+            <a href="tel:8684065027">📞 86840 65027 · Aashirwad</a>
+            <p>📍 RK Puram Part 2, Karnal</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Brothers Jangra Properties · All rights reserved</p>
+        <p>Made with ❤️ for Karnal</p>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+}));
+
+// Section tabs highlight
+const stabs = document.querySelectorAll('.stab');
+const secs = ['realestate','construction','legal'];
+window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(id => {
+        const el = document.getElementById(id);
+        if(el && window.scrollY >= el.offsetTop - 160) cur = id;
+    });
+    stabs.forEach(t => {
+        const href = t.getAttribute('href');
+        t.classList.toggle('active', href === '#' + cur);
+    });
+});
+
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
