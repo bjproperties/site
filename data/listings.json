@@ -1,254 +1,271 @@
 [
   {
-    "id": "BJP-001",
+    "code": "BJP-001",
     "category": "Plot",
     "location": "Hafed",
-    "demand": "₹20000",
-    "area_sqyd": 142,
+    "demand": "₹20,000",
+    "area_gaaj": 142,
     "paper_status": "Unregistered",
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-002",
+    "code": "BJP-002",
     "category": "Land",
     "location": "Bada Gaam",
-    "demand": "₹95L/pr",
-    "area_sqyd": 12100,
+    "demand": "₹95L",
+    "area_gaaj": 12100,
     "paper_status": null,
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-002-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-003",
+    "code": "BJP-003",
     "category": "Land",
     "location": "Nassir Pure",
-    "demand": "₹90L/pr",
-    "area_sqyd": 31460,
+    "demand": "₹90L",
+    "area_gaaj": 31460,
     "paper_status": null,
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-004",
+    "code": "BJP-004",
     "category": "Land",
     "location": "Navel",
-    "demand": "₹1.10/pr",
-    "area_sqyd": 77440,
+    "demand": "₹1.10 Cr",
+    "area_gaaj": 77440,
     "paper_status": null,
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-005",
+    "code": "BJP-005",
     "category": "Land",
     "location": "Ghronda",
-    "demand": "₹5.50/pr",
-    "area_sqyd": 72600,
+    "demand": "₹5.50 Cr",
+    "area_gaaj": 72600,
     "paper_status": null,
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-006",
+    "code": "BJP-006",
     "category": "Land",
     "location": "Bajidpure",
     "demand": "₹1.10 Cr",
-    "area_sqyd": 2420,
+    "area_gaaj": 2420,
     "paper_status": null,
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-007",
+    "code": "BJP-007",
     "category": "Land",
     "location": "Nissing",
-    "demand": "₹3.5/pr",
-    "area_sqyd": 96800,
+    "demand": "₹3.5 Cr",
+    "area_gaaj": 96800,
     "paper_status": null,
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-008",
+    "code": "BJP-008",
     "category": "Land",
     "location": "Karnal",
-    "demand": "₹6.5/pr",
-    "area_sqyd": 72600,
+    "demand": "₹6.5 Cr",
+    "area_gaaj": 72600,
     "paper_status": null,
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
-      "images/bjp-008-1.jpg",
       "images/bjp-008-1.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-009",
+    "code": "BJP-009",
     "category": "Land",
     "location": "Kalva",
-    "demand": "₹95L/ pr",
-    "area_sqyd": 9680,
+    "demand": "₹95L",
+    "area_gaaj": 9680,
     "paper_status": null,
+    "priority": "Cold",
+    "status": "Hold",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Hold"
+    ]
   },
   {
-    "id": "BJP-010",
+    "code": "BJP-010",
     "category": "Flat",
     "location": "Vasant Vihar",
     "demand": "₹55L",
-    "area_sqyd": 110,
+    "area_gaaj": 110,
     "paper_status": "Registry Clear",
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-002-1.jpg",
       "images/bjp-002-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-011",
+    "code": "BJP-011",
     "category": "Flat",
     "location": "DC Colony",
     "demand": "₹1 Cr 10L",
-    "area_sqyd": 150,
+    "area_gaaj": 150,
     "paper_status": "Registry Clear",
+    "priority": "Cold",
+    "status": "Hold",
     "remarks": null,
     "images": [
       "images/bjp-002-1.jpg",
       "images/bjp-002-2.jpg"
-    ],
-    "status": "Hold"
+    ]
   },
   {
-    "id": "BJP-012",
+    "code": "BJP-012",
     "category": "Land",
     "location": "Kurukshetra",
     "demand": "₹80L",
-    "area_sqyd": 48400,
+    "area_gaaj": 48400,
     "paper_status": null,
+    "priority": "Cold",
+    "status": "Hold",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Hold"
+    ]
   },
   {
-    "id": "BJP-013",
+    "code": "BJP-013",
     "category": "Plot",
     "location": "Alpha City",
     "demand": "₹1.5 Cr",
-    "area_sqyd": 102,
+    "area_gaaj": 102,
     "paper_status": "Registry Clear",
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-014",
+    "code": "BJP-014",
     "category": "Flat",
     "location": "Alpha City",
     "demand": "₹1.5 Cr",
-    "area_sqyd": 250,
+    "area_gaaj": 250,
     "paper_status": "Registry Clear",
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-002-1.jpg",
       "images/bjp-002-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-015",
+    "code": "BJP-015",
     "category": "House",
-    "location": "Vasant vihar",
+    "location": "Vasant Vihar",
     "demand": "₹52L",
-    "area_sqyd": 105,
+    "area_gaaj": 105,
     "paper_status": "Registry Clear",
+    "priority": "Warm",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-003-1.jpg",
       "images/bjp-003-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-016",
+    "code": "BJP-016",
     "category": "House",
-    "location": "Sec 7, Knl",
-    "demand": "₹6 cr",
-    "area_sqyd": 302,
+    "location": "Sector 7, Karnal",
+    "demand": "₹6 Cr",
+    "area_gaaj": 302,
     "paper_status": "Registry Clear",
+    "priority": "Hot",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-003-1.jpg",
       "images/bjp-003-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-017",
+    "code": "BJP-017",
     "category": "Land",
-    "location": "Panipat to Karnal Road (on Simla Molana Village) near Gt road",
-    "demand": "₹17Cr/pr",
-    "area_sqyd": 193600,
+    "location": "Panipat–Karnal Road, Simla Molana Village, Near GT Road",
+    "demand": "₹17 Cr",
+    "area_gaaj": 193600,
     "paper_status": null,
+    "priority": "Hot",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Active"
+    ]
   },
   {
-    "id": "BJP-018",
+    "code": "BJP-018",
     "category": "Plot",
-    "location": "Alpha city",
+    "location": "Alpha City",
     "demand": "₹85L",
-    "area_sqyd": null,
+    "area_gaaj": null,
     "paper_status": "Registry Clear",
+    "priority": "Cold",
+    "status": "Active",
     "remarks": null,
     "images": [
       "images/bjp-001-1.jpg",
       "images/bjp-001-2.jpg"
-    ],
-    "status": "Cold"
+    ]
   }
 ]
